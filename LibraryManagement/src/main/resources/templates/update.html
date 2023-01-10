@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<form th:action="@{/saveNewBooks}" method="POST" th:object="${update}">
+    <input type="hidden" th:field="*{id}">
+    <input type="text" th:field="*{bookName}"  placeholder="bookName" > <br>
+    <input type="text" th:field="*{bookAuthor}" placeholder="bookAuthor" > <br>
+    <input type="text" th:field="*{description}"  placeholder="description" > <br>
+    <input type="text" th:field="*{quantity}" placeholder="quantity" ><br>
+    <input type="text" th:field="*{price}"  placeholder="price" ><br>
+    <button type="submit">Add</button>
+</form>
+</body>
+</body>
+</html>

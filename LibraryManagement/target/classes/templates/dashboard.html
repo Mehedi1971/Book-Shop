@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en"xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{../style.css}">
+    <title>Title</title>
+</head>
+<body>
+<!--<table>-->
+<!--    <tr>-->
+<!--        <th>Book Name</th>-->
+<!--        <th>Book Author</th>-->
+<!--        <th>Description</th>-->
+<!--        <th>Quanriry</th>-->
+<!--        <th>Price</th>-->
+<!--        <th>Action</th>-->
+
+<!--    </tr>-->
+
+<!--    <tr th:each="books: ${listofallBooks}">-->
+<!--        <td th:text="${books.bookName}"></td>-->
+<!--        <td th:text="${books.bookAuthor}"></td>-->
+<!--        <td th:text="${books.description}"></td>-->
+<!--        <td th:text="${books.quantity}"></td>-->
+<!--        <td th:text="${books.price}"></td>-->
+<!--        <td>-->
+<!--            <a th:href="@{'/update/{id}'(id=${books.id})}">update</a>-->
+<!--            <a th:href="@{'/delete/{id}'(id=${books.id})}">delete</a>-->
+<!--        </td>-->
+<!--    </tr>-->
+<!--</table>-->
+
+<div class="nav">
+    <h3>Logo</h3>
+    <div class="menu-list">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contract</a></li>
+        </ul>
+    </div>
+</div>
+<div class="container" th:each="books: ${listofallBooks}">
+    <div class="card-img">
+        <img src="./img.webp" alt="img">
+    </div>
+    <div class="right-content" >
+        <h2><span th:text="${books.bookName}"></span></h2>
+        <p><span th:text="${books.bookAuthor}"></span></p>
+        <p><span th:text="${books.description}"></span></p>
+        <p><span th:text="${books.quantity}"></span></p>
+        <p><span th:text="${books.price}"></span></p>
+
+<!--        <p id="date">Created Date: 01/01/2023</p>-->
+<!--        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia, esse exercitationem adipisci aut, alias ad quam debitis iste aspernatur eligendi ea, impedit iusto ipsa magni ipsum reprehenderit laborum tempora quasi...</p>-->
+        <button>Read more</button>
+
+    </div>
+</div>
+</body>
+</html>
