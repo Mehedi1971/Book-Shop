@@ -9,16 +9,19 @@
 <a th:href="@{/savenew}">Add</a>
 <table>
     <tr>
+    <th>Image</th>
         <th>Book Name</th>
         <th>Book Author</th>
         <th>Description</th>
-        <th>Quanriry</th>
+        <th>Quantity</th>
         <th>Price</th>
         <th>Action</th>
 
     </tr>
 
     <tr th:each="books: ${listofallBooks}">
+    <td><img alt="sds" th:src="@{'img/'+${books.Image}}"
+						width="100%" height="100px"></td>
         <td th:text="${books.bookName}"></td>
         <td th:text="${books.bookAuthor}"></td>
         <td th:text="${books.description}"></td>
