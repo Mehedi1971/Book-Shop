@@ -17,10 +17,15 @@ public class LibraryService {
         return libraryRepository.findAll();
     }
 
-    public void saveBook(Library library){
-        this.libraryRepository.save(library);
-    }
+//    public void saveBook(Library library){
+//        this.libraryRepository.save(library);
+//    }
 
+    public Library getOneBook(long id) {
+    	Optional<Library> optional= libraryRepository.findById(id);
+    	Library library=optional.get();
+    	return library;
+    }
     public Library updateBooks(long id){
         Optional<Library> optional=libraryRepository.findById(id);
         Library library=optional.get();

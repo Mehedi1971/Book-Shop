@@ -1,34 +1,59 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+	xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<meta charset="UTF-8">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+	crossorigin="anonymous">
+
+<title>Title</title>
 </head>
 <body>
-<a th:href="@{/savenew}">Add</a>
-<table>
-    <tr>
-        <th>Book Name</th>
-        <th>Book Author</th>
-        <th>Description</th>
-        <th>Quanriry</th>
-        <th>Price</th>
-        <th>Action</th>
 
-    </tr>
+	<nav class="navbar navbar-expand-lg " style="background-color: #e3f2fd">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">Product List</a>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" th:href="@{/dashboard}">Dashboard</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
-    <tr th:each="books: ${listofallBooks}">
-        <td th:text="${books.bookName}"></td>
-        <td th:text="${books.bookAuthor}"></td>
-        <td th:text="${books.description}"></td>
-        <td th:text="${books.quantity}"></td>
-        <td th:text="${books.price}"></td>
-        <td>
-            <a th:href="@{'/update/{id}'(id=${books.id})}">update</a>
-            <a th:href="@{'/delete/{id}'(id=${books.id})}">delete</a>
-        </td>
-    </tr>
-</table>
+	<div style="text-align: center">
+		<a type="button" class="btn btn-success" style="margin-top: 20px;"
+			th:href="@{/savenew}">Add</a>
+		<table style="margin: 10px 50px;" class="table">
+			<tr>
+				<th>Image</th>
+				<th>Book Name</th>
+				<th>Book Author</th>
+				<th>Description</th>
+				<th>Quantity</th>
+				<th>Price</th>
+				<th>Action</th>
+
+			</tr>
+
+			<tr th:each="books: ${listofallBooks}">
+				<td><img alt="sds" th:src="@{'img/'+${books.Image}}"
+					width="50px" height="50px"></td>
+				<td th:text="${books.bookName}"></td>
+				<td th:text="${books.bookAuthor}"></td>
+				<td th:text="${books.description}"></td>
+				<td th:text="${books.quantity}"></td>
+				<td th:text="${books.price}"></td>
+				<td><a type="button" class="btn btn-primary"
+					th:href="@{'/update/{id}'(id=${books.id})}">update</a> <a
+					type="button" class="btn btn-danger"
+					th:href="@{'/delete/{id}'(id=${books.id})}">delete</a></td>
+			</tr>
+		</table>
+	</div>
 </body>
 </html>

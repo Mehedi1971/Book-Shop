@@ -3,12 +3,13 @@ package com.mahedi.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="books")
+@Table(name="book")
 public class Library {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    private String Image;
     private String bookName;
     private String bookAuthor;
     private String description;
@@ -18,8 +19,9 @@ public class Library {
     public Library() {
     }
 
-    public Library(long id, String bookName, String bookAuthor, String description, String quantity, String price) {
+    public Library(long id,String Image, String bookName, String bookAuthor, String description, String quantity, String price) {
         this.id = id;
+        this.Image = Image;
         this.bookName = bookName;
         this.bookAuthor = bookAuthor;
         this.description = description;
@@ -31,7 +33,15 @@ public class Library {
         return id;
     }
 
-    public void setId(long id) {
+    public String getImage() {
+		return Image;
+	}
+
+	public void setImage(String image) {
+		Image = image;
+	}
+
+	public void setId(long id) {
         this.id = id;
     }
 
@@ -79,6 +89,7 @@ public class Library {
     public String toString() {
         return "Library{" +
                 "id=" + id +
+                ", Image='" + Image + '\'' +
                 ", bookName='" + bookName + '\'' +
                 ", bookAuthor='" + bookAuthor + '\'' +
                 ", description='" + description + '\'' +

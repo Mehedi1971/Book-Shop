@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{../style.css}">
+</head>
+<body>
+	<div class="nav">
+		<h3>Logo</h3>
+		<div class="menu-list">
+			<ul>
+				<li><a th:href="@{/dashboard}">Home</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Contract</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- th:object="${bookdetails}" -->
+	<div class="cardDetails" th:each="book: ${bookdetails}">
+		<div>
+			<img th:src="@{'../img/'+${book.Image}}" width="400px" height="400px">
+		</div>
+
+
+		<div class="details-content" style="margin-top:20px;">
+			<div>
+				<h2>
+					<span th:text="${book.bookName}"></span>
+				</h2>
+				<p>
+					<span>Author:</span> <span th:text="${book.bookAuthor}"></span>
+				</p>
+				<p style="margin-top:15px;">
+					<span th:text="${book.description}"></span>
+				</p>
+				<p style="margin-top:15px;">
+					<span >Quantity :</span> <span style="font-weight:bold;" th:text="${book.quantity}"></span>
+				</p>
+				<p style="margin-top:8px; margin-bottom:8px;">
+					<span>Price :</span> <span style="font-weight:bold;" th:text="${book.price}"></span>
+				</p>
+
+
+
+
+
+				<button onclick="countDown()">-</button>
+				<span id="counter">0</span>
+				<button onclick="countUp()">+</button>
+
+			</div>
+		</div>
+</body>
+
+<script>
+	let count = 0;
+
+	function countUp() {
+		count = count + 1;
+		updateCount();
+	}
+
+	function countDown() {
+		if (count > 0) {
+
+			count = count - 1;
+			updateCount();
+		}
+
+	}
+
+	//
+	function updateCount() {
+		let counter = document.getElementById('counter');
+		counter.innerText = count;
+	}
+</script>
+</html>
